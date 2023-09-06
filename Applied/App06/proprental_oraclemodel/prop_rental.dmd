@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="prop_rental" id="F535CAFD-7976-CBEE-0936-58D6815614A3" version="3.5">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:23:40 UTC</createdTime>
+<ownerDesignName>prop_rental</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>F535CAFD-7976-CBEE-0936-58D6815614A3</designId>
+</OSDM_Design>
