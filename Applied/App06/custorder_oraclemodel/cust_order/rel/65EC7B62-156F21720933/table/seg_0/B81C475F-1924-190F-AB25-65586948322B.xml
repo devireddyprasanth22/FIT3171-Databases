@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B81C475F-1924-190F-AB25-65586948322B" name="PROD_CATEGORY">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-08-30 01:14:29 UTC</createdTime>
+<generatorID>9AE06933-C64E-D5D2-66B9-B6B1B1198B77</generatorID>
+<ownerDesignName>cust_order</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="pcat_id" id="25F7C505-9F66-3CEE-E277-8BB2F6A060F8">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-08-30 01:14:29 UTC</createdTime>
+<commentInRDBMS><![CDATA[product cat id]]></commentInRDBMS>
+<generatorID>556BA390-3011-1D41-924D-BF4076EF06D5</generatorID>
+<ownerDesignName>cust_order</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pcat_name" id="CA2F8EEE-0A56-3859-9F9A-9939CE7BD67E">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-08-30 01:14:29 UTC</createdTime>
+<commentInRDBMS><![CDATA[category name]]></commentInRDBMS>
+<generatorID>795F6891-556D-39D0-9EFB-DCAD63D25C0A</generatorID>
+<ownerDesignName>cust_order</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="29A929B5-6B92-AAAA-1FE2-DB4A9E4AB1AA" name="PROD_CATEGORY_PK">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-08-30 01:14:29 UTC</createdTime>
+<generatorID>BADF1F5E-8E90-A338-A980-82E271F13F37</generatorID>
+<ownerDesignName>cust_order</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="25F7C505-9F66-3CEE-E277-8BB2F6A060F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

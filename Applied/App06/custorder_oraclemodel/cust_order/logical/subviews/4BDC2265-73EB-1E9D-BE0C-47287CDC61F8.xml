@@ -60,7 +60,7 @@
 </targetLabel>
 <points>
 <point x="517" y="129"/>
-<point x="705" y="116"/>
+<point x="705" y="129"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="8DC6ED7C-B6BF-109D-30B4-2CD533C250B8" otype="Relation" vid_source="DCD41D40-080E-21BA-A160-CAD585C8C556" vid_target="22A8BB35-0A34-CCF3-6578-24457DC36E7A">
