@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="93D83C3B-12CA-4EC2-2209-518976B48A73" name="PROPERTY">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:41:39 UTC</createdTime>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="property_no" id="6F1D9DE3-1F96-7F1A-7C2F-A953B1F49C70">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:41:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Property no]]></commentInRDBMS>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="property_address" id="7317A1F7-224B-2499-16AC-0B525E4BFEC2">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:42:36 UTC</createdTime>
+<commentInRDBMS><![CDATA[property address]]></commentInRDBMS>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="property_val" id="A7990391-81A4-30B2-0216-D27D2DC1A35C">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:43:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[value of the property]]></commentInRDBMS>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,7,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_no" id="1BF53B15-14BC-661F-5B05-F645FB68643B">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:47:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[owner number]]></commentInRDBMS>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_no1" id="6886E120-A8B7-70E0-B453-E010BE86FC7B">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:47:56 UTC</createdTime>
+<commentInRDBMS><![CDATA[Owner number]]></commentInRDBMS>
+<generatorID>830124AF-CA1D-5AA7-BD80-DE64065FFCCE</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>9AC51496-8502-A82C-5DF1-C1C7CAA849F5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DAE9AFB8-47F7-F2EF-AC54-266C9DAA4164" name="PROPERTY PK">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:42:30 UTC</createdTime>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6F1D9DE3-1F96-7F1A-7C2F-A953B1F49C70</attributeRef>
+<attributeRef>1BF53B15-14BC-661F-5B05-F645FB68643B</attributeRef>
+<attributeRef>6886E120-A8B7-70E0-B453-E010BE86FC7B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

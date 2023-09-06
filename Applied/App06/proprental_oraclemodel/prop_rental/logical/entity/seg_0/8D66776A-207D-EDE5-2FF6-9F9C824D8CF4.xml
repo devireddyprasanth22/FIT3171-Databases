@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8D66776A-207D-EDE5-2FF6-9F9C824D8CF4" name="OWNER">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:37:56 UTC</createdTime>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="owner_no" id="9AC51496-8502-A82C-5DF1-C1C7CAA849F5">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:38:10 UTC</createdTime>
+<commentInRDBMS><![CDATA[Owner number]]></commentInRDBMS>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_fname" id="D12F2215-CB52-50EF-57BE-2E2E1992D95C">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:39:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[Owner first name]]></commentInRDBMS>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_lname" id="BB289EA9-8860-9D1D-2DC5-27F3E24A9EFA">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:40:10 UTC</createdTime>
+<commentInRDBMS><![CDATA[Owners last name]]></commentInRDBMS>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="627BBD54-7802-12F3-47D7-99C6A4E9ACE1" name="Entity_1 PK">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-06 06:39:10 UTC</createdTime>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9AC51496-8502-A82C-5DF1-C1C7CAA849F5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

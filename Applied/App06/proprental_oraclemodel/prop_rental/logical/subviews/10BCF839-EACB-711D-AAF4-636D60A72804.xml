@@ -13,4 +13,25 @@
 <diagramColor>-1</diagramColor>
 <display>false</display>
 <notation>1</notation>
+<objectViews>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="8D66776A-207D-EDE5-2FF6-9F9C824D8CF4" otype="Entity" vid="8F7E82A4-5112-A3C4-1383-7A9F48F18EB8">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="346" y="56" width="170" height="110"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="93D83C3B-12CA-4EC2-2209-518976B48A73" otype="Entity" vid="0DC21CD3-2C4C-AF3E-E8CF-A031E666F701">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="341" y="224" width="170" height="110"/>
+</OView>
+</objectViews>
+<connectors>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="830124AF-CA1D-5AA7-BD80-DE64065FFCCE" otype="Relation" vid_source="8F7E82A4-5112-A3C4-1383-7A9F48F18EB8" vid_target="0DC21CD3-2C4C-AF3E-E8CF-A031E666F701">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="443" y="166"/>
+<point x="443" y="224"/>
+</points>
+</Connector>
+</connectors>
 </Diagram>
