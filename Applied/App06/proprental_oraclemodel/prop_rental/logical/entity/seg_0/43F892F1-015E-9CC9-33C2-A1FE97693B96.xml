@@ -1,0 +1,268 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="43F892F1-015E-9CC9-33C2-A1FE97693B96" name="DAMAGE">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:29:13 UTC</createdTime>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="dam_no" id="1A652A64-5E94-FAB2-A132-0D47A5ABD69D">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:29:53 UTC</createdTime>
+<commentInRDBMS><![CDATA[damage number]]></commentInRDBMS>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dam_datetime" id="40D9F732-DA0E-5454-F7B2-303180AA27E1">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:30:17 UTC</createdTime>
+<commentInRDBMS><![CDATA[damage date and time]]></commentInRDBMS>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dam_type" id="D5A8E6F1-64F6-0837-7D03-B5EF4CC1BE73">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:30:42 UTC</createdTime>
+<commentInRDBMS><![CDATA[damage type]]></commentInRDBMS>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dam_cost" id="133B015C-17DE-13B5-0329-6BECF4ED533C">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:31:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[damage cost]]></commentInRDBMS>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="rent_lease_start" id="36E1B6CA-920A-35C8-6616-DA1023EF200E">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:34:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[The start date of the lease]]></commentInRDBMS>
+<generatorID>A3D64178-E036-23F4-1160-10E8E2C46676</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>0A9282E5-10A3-BBC6-CAD5-751F0A3406A9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prop_no" id="F14CC8EB-F79C-CC91-A1F9-F41B9F53FFA3">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:34:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[property number]]></commentInRDBMS>
+<generatorID>A3D64178-E036-23F4-1160-10E8E2C46676</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>5B2BE9FB-8A3C-5700-360E-25DCB2871F7F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_no" id="A346BD9D-3303-24A1-9186-4CB02D2B208B">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:34:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[Owner number]]></commentInRDBMS>
+<generatorID>A3D64178-E036-23F4-1160-10E8E2C46676</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>0BD1327F-FF84-70C8-69F5-4D4C9728AB04</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_no1" id="91F6DEE8-06F1-FA54-2DAB-122702F9D8E4">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:34:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[Owner number]]></commentInRDBMS>
+<generatorID>A3D64178-E036-23F4-1160-10E8E2C46676</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>0BD1327F-FF84-70C8-69F5-4D4C9728AB04</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tenant_no" id="23C729EF-2C09-5524-20CF-68CAD6FD8E78">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:34:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[tenant number]]></commentInRDBMS>
+<generatorID>A3D64178-E036-23F4-1160-10E8E2C46676</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>DADDAAA3-08BC-4421-AD95-020F72AFA060</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pay_no" id="6B72273C-357A-E43F-7CA5-D5875B3CAE5C">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:37:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[payment number]]></commentInRDBMS>
+<generatorID>2DCD072A-594B-2ECD-6B14-2928BD01BD48</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>02D79224-4CC2-C5E4-4094-56D974BBD431</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="rent_lease_start1" id="224C78F8-7B2D-0331-D079-E44CEBAFECC6">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:37:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[The start date of the lease]]></commentInRDBMS>
+<generatorID>2DCD072A-594B-2ECD-6B14-2928BD01BD48</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>4D371CD0-76C1-B760-E8F6-4E86055ED0AA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prop_no1" id="36A80F2B-39EA-196F-60A8-C2CC2FE688C9">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:37:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[property number]]></commentInRDBMS>
+<generatorID>2DCD072A-594B-2ECD-6B14-2928BD01BD48</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>BEAA6F50-E83A-6CFA-F655-9CCCF2AE5FD4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_no2" id="D8D23BDC-42FB-F370-BC33-699A728E8E86">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:37:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[Owner number]]></commentInRDBMS>
+<generatorID>2DCD072A-594B-2ECD-6B14-2928BD01BD48</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>0107BE76-B4FB-B07D-A985-19C7649232FA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_no11" id="9317538B-24B5-98F0-5626-B71101338B73">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:37:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[Owner number]]></commentInRDBMS>
+<generatorID>2DCD072A-594B-2ECD-6B14-2928BD01BD48</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>EA30D262-17E4-92DC-B2A2-F88DC9FAFB19</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tenant_no1" id="9D6956F8-DF27-E524-C7D9-9C0B7E276AD6">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:37:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[tenant number]]></commentInRDBMS>
+<generatorID>2DCD072A-594B-2ECD-6B14-2928BD01BD48</generatorID>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<referedAttribute>E893693F-B6E0-9ED9-BA70-BBF055D3B428</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="16DB205E-6FCA-DA66-BE4A-AC3AD10DB6F1" name="DAMAGE PK">
+<createdBy>dpkrd</createdBy>
+<createdTime>2023-09-07 03:30:06 UTC</createdTime>
+<ownerDesignName>prop_rental</ownerDesignName>
+<engineerTo>
+<item key="005C0804-E33C-5442-E172-A0533C1D23F6" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1A652A64-5E94-FAB2-A132-0D47A5ABD69D</attributeRef>
+<attributeRef>91F6DEE8-06F1-FA54-2DAB-122702F9D8E4</attributeRef>
+<attributeRef>36E1B6CA-920A-35C8-6616-DA1023EF200E</attributeRef>
+<attributeRef>F14CC8EB-F79C-CC91-A1F9-F41B9F53FFA3</attributeRef>
+<attributeRef>A346BD9D-3303-24A1-9186-4CB02D2B208B</attributeRef>
+<attributeRef>23C729EF-2C09-5524-20CF-68CAD6FD8E78</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
