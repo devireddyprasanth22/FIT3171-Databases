@@ -1,24 +1,54 @@
+set echo on
+spool week8_dml_output.txt
 /*
 Databases Week 8 Applied
 week8_dml.sql
 
-student id: 
-student name:
-last modified date:
+student id: 31332374
+student name: Prasanth Devireddy
+last modified date: 13/09/23
 
 */
 
 ---==8.2.1 INSERT==--
 /*1 */
+INSERT INTO STUDENT VALUES(11111111,'Bloggs','Fred',TO_DATE('1-Jan-2003','DD-MON-YYYY'));
+INSERT INTO STUDENT VALUES(11111114,'Sheen','Cindy',TO_DATE('25-Dec-2004','DD-MON-YYYY'));
 
+INSERT INTO UNIT VALUES('FIT9999','FIT Last Unit');
+INSERT INTO UNIT VALUES('FIT9132','Introduction to Databases');
+INSERT INTO UNIT VALUES('FIT5111','Student''s Life');
+
+INSERT INTO ENROLMENT VALUES(11111111, 'FIT9132', 2022, '1', 35,'N');
+INSERT INTO ENROLMENT VALUES(11111111, 'FIT9132', 2022, '2', 61,'C');
+INSERT INTO ENROLMENT VALUES(11111114, 'FIT5111', 2022, '1', null,null);
 ---==8.2.2 INSERT using SEQUENCEs ==--
 /*1 */
+DROP SEQUENCE STUDENT_SEQ;
+CREATE SEQUENCE STUDENT_SEQ START WITH 11111115 INCREMENT BY 1;
+
+INSERT INTO STUDENT VALUES(STUDENT_SEQ.NEXTVAL, 'Mouse', 'Mickey', TO_DATE('02-Jun-2023','DD-Mon-YYYY'));
+
+INSERT INTO ENROLMENT VALUES(STUDENT_SEQ.CURRVAL, 'FIT9132', 2023, '1', NULL, NULL);
+
+
+COMMIT;
+
+SELECT * FROM ENROLMENT;
 
 /*2 */
 
 
 ---==8.2.3 Advanced INSERT==--
 /*1 */
+INSERT INTO ENROLMENT VALUES(
+11111114,
+(SELECT UNIT_CODE FROM UNIT WHERE UPPER(UNIT_NAME) = UPPER('Introduction to Databases')),
+2023,
+'2',
+NULL,
+NULL);
+COMMIT;
 
 ---==8.2.4 Creating a table and inserting data as a single SQL statement==--
 /*1 */
@@ -30,6 +60,24 @@ last modified date:
 
 ---==8.2.5 UPDATE==--
 /*1 */
+SELECT * FROM UNIT;
+SELECT * FROM ENROLMENT;
+
+DESC ENROLMENT;
+
+UPDATE ENROLMENT
+SET ENROL_MARK = 75, ENROL_GRADE = 'D'
+WHERE
+STU_NBR = 11111113
+AND ENROL_SEMESTER = '1'
+AND ENROL_YEAR = 2023
+AND 
+UNIT_CODE = (SELECT UNIT_CODE FROM UNIT WHERE
+LOWER(UNIT_NAME) = LOWER('Introduction to Databases'));
+
+SELECT * FROM ENROLMENT;
+COMMIT;
+
 
 
 /*2 */
@@ -51,4 +99,5 @@ last modified date:
 
 /*3 */
 
-
+spool off
+set echo off
