@@ -28,7 +28,10 @@ CREATE TABLE appointment (
     nurse_no          NUMBER(3) NOT NULL,
     appt_prior_apptno NUMBER(7)
 );
-
+ALTER TABLE appointment ADD CONSTRAINT appointment_pk PRIMARY KEY ( appt_no );
+ALTER TABLE appointment
+    ADD CONSTRAINT apptlength_chk CHECK ( appt_length IN ( 'S', 'T', 'L')
+    );
 -- TABLE: EMERGENCY_CONTACT
 CREATE TABLE emergency_contact (
     ec_id    NUMBER(4) NOT NULL,
@@ -36,7 +39,7 @@ CREATE TABLE emergency_contact (
     ec_lname VARCHAR(30),
     ec_phone CHAR(10) NOT NULL
 );
-
+ALTER TABLE emergency_contact ADD CONSTRAINT ec_pk PRIMARY KEY ( ec_id );
 -- TABLE: PATIENT
 CREATE TABLE patient (
     patient_no             NUMBER(4) NOT NULL,
@@ -51,8 +54,32 @@ CREATE TABLE patient (
     patient_contactemail   VARCHAR(25) NOT NULL,
     ec_id                  NUMBER(4) NOT NULL
 );
-
-
+ALTER TABLE patient ADD CONSTRAINT patient_pk PRIMARY KEY ( patient_no );
+ALTER TABLE patient
+    ADD CONSTRAINT patientstate_chk CHECK ( patient_state IN ( 'NT', 'QLD', 'NSW', 'ACT', 'VIC', 'TAS', 'SA', 'WA')
+    );
 -- Add all missing FK Constraints below here
+ALTER TABLE patient
+    ADD CONSTRAINT ec_fk FOREIGN KEY ( ed_id )
+        REFERENCES emergency_contact ( ec_id );
+        
+ALTER TABLE emergency_contact
+    ADD CONSTRAINT ec_uq UNIQUE ( ec_phone);
+    
+ALTER TABLE appointment
+    ADD CONSTRAINT appointment_uq UNIQUE ( appt_datetime,
+                                          appt_roomno,
+                                          patient_no,
+                                          provider_code,
+                                          appt_prior_apptno);
+ALTER TABLE appointment
+    ADD CONSTRAINT patient_appointment_fk FOREIGN KEY ( patient_no )
+        REFERENCES patient ( patient_no );
 
-
+ALTER TABLE appointment
+    ADD CONSTRAINT provider_appointment_fk FOREIGN KEY ( provider_code )
+        REFERENCES provider ( provider_code );
+        
+ALTER TABLE appointment
+    ADD CONSTRAINT appointment_fk FOREIGN KEY ( appt_prior_apptno )
+        REFERENCES appointment ( appt_prior_apptno );
