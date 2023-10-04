@@ -32,6 +32,29 @@ ALTER TABLE appointment ADD CONSTRAINT appointment_pk PRIMARY KEY ( appt_no );
 ALTER TABLE appointment
     ADD CONSTRAINT apptlength_chk CHECK ( appt_length IN ( 'S', 'T', 'L')
     );
+COMMENT ON COLUMN appointment.appt_no IS
+    'Appointment number (unique)';
+COMMENT ON COLUMN appointment.appt_datetime IS
+    'Date and time of the appointment';
+
+COMMENT ON COLUMN appointment.appt_roomno IS
+    'appointment room number';
+
+COMMENT ON COLUMN appointment.appt_length IS
+    'Length of the appointment';
+
+COMMENT ON COLUMN appointment.patient_no IS
+    'patient number';
+
+COMMENT ON COLUMN appointment.provider_code IS
+    'Provider code for the appointment';
+
+COMMENT ON COLUMN appointment.nurse_no IS
+    'nurse number';
+
+COMMENT ON COLUMN appointment.appt_prior_apptno IS
+    'Appointment number of the prior appointment';
+    
 -- TABLE: EMERGENCY_CONTACT
 CREATE TABLE emergency_contact (
     ec_id    NUMBER(4) NOT NULL,
@@ -40,6 +63,17 @@ CREATE TABLE emergency_contact (
     ec_phone CHAR(10) NOT NULL
 );
 ALTER TABLE emergency_contact ADD CONSTRAINT ec_pk PRIMARY KEY ( ec_id );
+COMMENT ON COLUMN emergency_contact.ec_id IS
+    'emergency contact ID (unique)';
+
+COMMENT ON COLUMN emergency_contact.ec_fname IS
+    'First name of the emergency contact';
+
+COMMENT ON COLUMN emergency_contact.ec_lname IS
+    'Last name of the emergency contact';
+
+COMMENT ON COLUMN emergency_contact.ec_phone IS
+    'Phone number of the emergency contact';
 -- TABLE: PATIENT
 CREATE TABLE patient (
     patient_no             NUMBER(4) NOT NULL,
@@ -58,9 +92,41 @@ ALTER TABLE patient ADD CONSTRAINT patient_pk PRIMARY KEY ( patient_no );
 ALTER TABLE patient
     ADD CONSTRAINT patientstate_chk CHECK ( patient_state IN ( 'NT', 'QLD', 'NSW', 'ACT', 'VIC', 'TAS', 'SA', 'WA')
     );
+COMMENT ON COLUMN patient.patient_no IS
+    'patient number (unique)';
+
+COMMENT ON COLUMN patient.patient_fname IS
+    'First name of the patient';
+
+COMMENT ON COLUMN patient.patient_lname IS
+    'Last name of the patient';
+
+COMMENT ON COLUMN patient.patient_street IS
+    'Street address of the patient';
+
+COMMENT ON COLUMN patient.patient_city IS
+    'Residential city of the patient';
+
+COMMENT ON COLUMN patient.patient_state IS
+    'patient residential state';
+
+COMMENT ON COLUMN patient.patient_postcode IS
+    'Postal code of the patient';
+
+COMMENT ON COLUMN patient.patient_dob IS
+    'Date of birth of the patient';
+
+COMMENT ON COLUMN patient.patient_contactmobile IS
+    'Contact mobile number of the patient';
+
+COMMENT ON COLUMN patient.patient_contactemail IS
+    'Contact email address of the patient';
+
+COMMENT ON COLUMN patient.ec_id IS
+    'Identifier of the emergency contact for the patient';
 -- Add all missing FK Constraints below here
 ALTER TABLE patient
-    ADD CONSTRAINT ec_fk FOREIGN KEY ( ed_id )
+    ADD CONSTRAINT ec_fk FOREIGN KEY ( ec_id )
         REFERENCES emergency_contact ( ec_id );
         
 ALTER TABLE emergency_contact
@@ -72,6 +138,7 @@ ALTER TABLE appointment
                                           patient_no,
                                           provider_code,
                                           appt_prior_apptno);
+
 ALTER TABLE appointment
     ADD CONSTRAINT patient_appointment_fk FOREIGN KEY ( patient_no )
         REFERENCES patient ( patient_no );
@@ -81,5 +148,9 @@ ALTER TABLE appointment
         REFERENCES provider ( provider_code );
         
 ALTER TABLE appointment
-    ADD CONSTRAINT appointment_fk FOREIGN KEY ( appt_prior_apptno )
+    ADD CONSTRAINT nurse_appointment_fk FOREIGN KEY ( nurse_no )
+        REFERENCES nurse ( nurse_no );
+        
+ALTER TABLE appointment
+    ADD CONSTRAINT appointment_appointment_fk FOREIGN KEY ( appt_prior_apptno )
         REFERENCES appointment ( appt_prior_apptno );
