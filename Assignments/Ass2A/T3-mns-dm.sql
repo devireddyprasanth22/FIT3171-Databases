@@ -106,10 +106,30 @@ INSERT INTO appointment VALUES (
     appt_no_seq.currval
 );
 
+-- To get the appointment number
+SELECT
+    "A1"."APPT_NO" "APPT_NO"
+FROM
+    "PDEV0010"."APPOINTMENT" "A1"
+WHERE
+        "A1"."PATIENT_NO" = (
+            SELECT
+                "A2"."PATIENT_NO" "PATIENT_NO"
+            FROM
+                "PDEV0010"."PATIENT" "A2"
+            WHERE
+                "A2"."PATIENT_FNAME" = 'Lachlan'
+        )
+    AND "A1"."APPT_DATETIME" = TO_DATE('14/9/2023 16:00', 'dd/mm/yyyy hh24:mi');
 --3(d)
 UPDATE appointment
 SET appt_datetime = TO_DATE('18/09/2023 16:00', 'dd/mm/yyyy hh24:mi')
-WHERE appt_no =  appt_no_seq.currval;
+WHERE appt_no =  110;
 
 --3(e)
+DELETE FROM appointment
+WHERE provider_code = 'GEN001'
+  AND appt_datetime >= TO_DATE('15/09/2023', 'dd/mm/yyyy')
+  AND appt_datetime <= TO_DATE('22/09/2023', 'dd/mm/yyyy');
 
+commit;
