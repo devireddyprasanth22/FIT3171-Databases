@@ -45,4 +45,51 @@ JOIN emergency_contact ec ON pec.ec_id = ec.ec_id;
 DESC patient_ec;
 
 --4(c)
+DROP TABLE nurse_training CASCADE CONSTRAINTS;
+CREATE TABLE nurse_training (
+    training_id        NUMBER(3) NOT NULL,
+    nurse_no           NUMBER(3) NOT NULL,
+    nurse_fname        VARCHAR2(30),
+    nurse_lname        VARCHAR2(30),
+    nurse_trainer_no   NUMBER(3) NOT NULL,
+    nurse_trainer_fname VARCHAR2(30),
+    nurse_trainer_lname VARCHAR2(30),
+    start_datetime      DATE NOT NULL,
+    end_datetime        DATE NOT NULL,
+    descrip             VARCHAR(50)
+    
+);
+--adding pk
+ALTER TABLE nurse_training
+ADD CONSTRAINT nurse_training_pk PRIMARY KEY (training_id);
 
+--adding fks
+ALTER TABLE nurse_training
+ADD CONSTRAINT nurse_training_nurse_no_fk
+FOREIGN KEY (nurse_no)
+REFERENCES nurse(nurse_no);
+
+ALTER TABLE nurse_training
+ADD CONSTRAINT nurse_training_nurse_trainer_no_fk
+FOREIGN KEY (nurse_trainer_no)
+REFERENCES nurse(nurse_no);
+
+ALTER TABLE nurse_training
+ADD CONSTRAINT nurse_training_nurse_fname_fk
+FOREIGN KEY (nurse_fname)
+REFERENCES nurse(nurse_fname);
+
+ALTER TABLE nurse_training
+ADD CONSTRAINT nurse_training_nurse_lname_fk
+FOREIGN KEY (nurse_lname)
+REFERENCES nurse(nurse_lname);
+
+ALTER TABLE nurse_training
+ADD CONSTRAINT nurse_training_nurse_trainer_fname_fk
+FOREIGN KEY (nurse_trainer_fname)
+REFERENCES nurse(nurse_fname);
+
+ALTER TABLE nurse_training
+ADD CONSTRAINT nurse_training_nurse_trainer_lname_fk
+FOREIGN KEY (nurse_trainer_lname)
+REFERENCES nurse(nurse_lname);
