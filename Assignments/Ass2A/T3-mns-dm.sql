@@ -36,7 +36,7 @@ CREATE SEQUENCE appt_no_seq
 --3(b)
 --insert emergency contact Jonathan
 INSERT INTO emergency_contact VALUES (
-    ec_id_seq.NEXTVAL,
+    ec_id_seq.nextval,
     'Jonathan',
     'Robey',
     '0412523122'

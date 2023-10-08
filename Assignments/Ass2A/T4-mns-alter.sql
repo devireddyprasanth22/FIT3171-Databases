@@ -12,12 +12,37 @@
 
 
 */
-
 --4(a)
+--ading new attribute
+ALTER TABLE patient
+ADD total_appointments NUMBER(4) DEFAULT 0;
 
+UPDATE patient p
+SET p.total_appointments = (
+    SELECT COUNT(a.appt_no)
+    FROM appointment a
+    WHERE a.patient_no = p.patient_no
+);
 
+DESC patient;
+SELECT patient_no, patient_fname, patient_lname, total_appointments
+FROM patient;
 --4(b)
+DROP TABLE patient_ec CASCADE CONSTRAINTS;
+CREATE TABLE patient_ec (
+    patient_no NUMBER(4) NOT NULL,
+    ec_id NUMBER(4) NOT NULL
+);
+ALTER TABLE patient_ec ADD CONSTRAINT patient_ec_pk PRIMARY KEY ( patient_no,ec_id );
+ALTER TABLE patient_ec ADD CONSTRAINT patient_patient_ec_fk FOREIGN KEY (patient_no) REFERENCES patient(patient_no);
+ALTER TABLE patient_ec ADD CONSTRAINT ec_patient_ec_fk FOREIGN KEY (ec_id) REFERENCES emergency_contact(ec_id);
 
+SELECT p.patient_no, p.patient_fname, p.patient_lname, ec.ec_fname, ec.ec_lname, ec.ec_phone
+FROM patient p
+JOIN patient_ec pec ON p.patient_no = pec.patient_no
+JOIN emergency_contact ec ON pec.ec_id = ec.ec_id;
+
+DESC patient_ec;
 
 --4(c)
 

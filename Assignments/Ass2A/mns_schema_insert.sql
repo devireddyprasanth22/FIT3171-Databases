@@ -17,7 +17,6 @@ This material is protected by copyright. For use within Monash University only. 
 Do not remove this notice. 
   
 */
-
 DROP TABLE appointment CASCADE CONSTRAINTS;
 
 DROP TABLE emergency_contact CASCADE CONSTRAINTS;
