@@ -61,9 +61,13 @@ CREATE TABLE nurse_training (
 );
 --adding pk
 ALTER TABLE nurse_training
+ADD CONSTRAINT nt_unique UNIQUE (training_id);
+
+ALTER TABLE nurse_training
 ADD CONSTRAINT nurse_training_pk PRIMARY KEY (training_id);
 
 --adding fks
+
 ALTER TABLE nurse_training
 ADD CONSTRAINT nurse_training_nurse_no_fk
 FOREIGN KEY (nurse_no)
@@ -73,23 +77,3 @@ ALTER TABLE nurse_training
 ADD CONSTRAINT nurse_training_nurse_trainer_no_fk
 FOREIGN KEY (nurse_trainer_no)
 REFERENCES nurse(nurse_no);
-
-ALTER TABLE nurse_training
-ADD CONSTRAINT nurse_training_nurse_fname_fk
-FOREIGN KEY (nurse_fname)
-REFERENCES nurse(nurse_fname);
-
-ALTER TABLE nurse_training
-ADD CONSTRAINT nurse_training_nurse_lname_fk
-FOREIGN KEY (nurse_lname)
-REFERENCES nurse(nurse_lname);
-
-ALTER TABLE nurse_training
-ADD CONSTRAINT nurse_training_nurse_trainer_fname_fk
-FOREIGN KEY (nurse_trainer_fname)
-REFERENCES nurse(nurse_fname);
-
-ALTER TABLE nurse_training
-ADD CONSTRAINT nurse_training_nurse_trainer_lname_fk
-FOREIGN KEY (nurse_trainer_lname)
-REFERENCES nurse(nurse_lname);

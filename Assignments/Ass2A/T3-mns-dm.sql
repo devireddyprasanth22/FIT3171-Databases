@@ -108,15 +108,15 @@ INSERT INTO appointment VALUES (
 
 -- To get the appointment number
 SELECT
-    "A1"."APPT_NO" "APPT_NO"
+    A1."APPT_NO" "APPT_NO"
 FROM
-    "PDEV0010"."APPOINTMENT" "A1"
+    uni."APPOINTMENT" A1
 WHERE
-        "A1"."PATIENT_NO" = (
+        A1."PATIENT_NO" = (
             SELECT
-                "A2"."PATIENT_NO" "PATIENT_NO"
+                A2."PATIENT_NO" "PATIENT_NO"
             FROM
-                "PDEV0010"."PATIENT" "A2"
+                uni."PATIENT" A2
             WHERE
                 "A2"."PATIENT_FNAME" = 'Lachlan'
         )

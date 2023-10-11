@@ -153,4 +153,4 @@ ALTER TABLE appointment
         
 ALTER TABLE appointment
     ADD CONSTRAINT appointment_appointment_fk FOREIGN KEY ( appt_prior_apptno )
-        REFERENCES appointment ( appt_prior_apptno );
+        REFERENCES appointment ( appt_no );
