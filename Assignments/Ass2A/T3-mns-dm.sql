@@ -92,7 +92,7 @@ INSERT INTO appointment VALUES (
     NULL
 );
 
-
+COMMIT;
 --3(c)
 --follow up for lachlan
 INSERT INTO appointment VALUES (
@@ -106,6 +106,9 @@ INSERT INTO appointment VALUES (
     appt_no_seq.currval
 );
 
+COMMIT;
+
+--3(d)
 -- To get the appointment number
 SELECT
     A1."APPT_NO" "APPT_NO"
@@ -121,15 +124,16 @@ WHERE
                 "A2"."PATIENT_FNAME" = 'Lachlan'
         )
     AND "A1"."APPT_DATETIME" = TO_DATE('14/9/2023 16:00', 'dd/mm/yyyy hh24:mi');
---3(d)
+    
 UPDATE appointment
 SET appt_datetime = TO_DATE('18/09/2023 16:00', 'dd/mm/yyyy hh24:mi')
 WHERE appt_no =  110;
 
+COMMIT;
 --3(e)
 DELETE FROM appointment
 WHERE provider_code = 'GEN001'
   AND appt_datetime >= TO_DATE('15/09/2023', 'dd/mm/yyyy')
   AND appt_datetime <= TO_DATE('22/09/2023', 'dd/mm/yyyy');
 
-commit;
+COMMIT;
