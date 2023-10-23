@@ -141,7 +141,7 @@ SELECT
                 ) / COUNT(appt_no) * 100)
         END,
         '990.99')
-    || '%'                                           AS "followups"
+    || '%'                                           AS followups
 FROM
     mns.patient 
     NATURAL JOIN mns.appointment
@@ -157,3 +157,29 @@ ORDER BY
 -- PLEASE PLACE REQUIRED SQL SELECT STATEMENT FOR THIS PART HERE
 -- ENSURE that your query is formatted and has a semicolon
 -- (;) at the end of this answer
+SELECT
+    provider_code           AS pcode,
+    COUNT(DISTINCT appt_no) AS numberappt,
+    CASE
+        WHEN SUM(apptserv_fee) IS NULL THEN
+            '-'
+        ELSE
+            to_char(SUM(apptserv_fee),
+                    '$99999.99')
+    END                     AS totalfees,
+    CASE
+        WHEN SUM(as_item_quantity) IS NULL THEN '-'
+        ELSE TO_CHAR(SUM(as_item_quantity), '99999')
+    END AS noitems
+FROM
+         mns.provider
+    NATURAL JOIN mns.appointment
+    NATURAL JOIN mns.appt_serv
+    NATURAL JOIN mns.apptservice_item 
+WHERE
+    appt_datetime BETWEEN TO_DATE('10-Sep-2023 09:00', 'dd-Mon-yyyy hh24:mi') AND
+    TO_DATE('14-Sep-2023 17:00', 'dd-Mon-yyyy hh24:mi')
+GROUP BY
+    provider_code
+ORDER BY
+    provider_code;
