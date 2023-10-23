@@ -85,17 +85,26 @@ SELECT
     appt_datetime,
     patient_no,
     patient_fname,
-    lpad(to_char(apptserv_fee + coalesce(apptserv_itemcost, 0),
+    lpad(to_char(apptserv_fee + NVL(apptserv_itemcost, 0),
                  '$9999.99'),
          15) AS total
 FROM
          mns.appointment
     NATURAL JOIN mns.patient
     NATURAL JOIN mns.appt_serv
+WHERE
+    apptserv_fee + NVL(apptserv_itemcost, 0) = (
+        SELECT
+            MAX(apptserv_fee + NVL(apptserv_itemcost, 0)) AS max_total
+        FROM
+            mns.appointment
+        NATURAL JOIN mns.patient
+        NATURAL JOIN mns.appt_serv
+    )
 ORDER BY
     total DESC,
     appt_no;
-
+            
 /*2(e)*/
 -- PLEASE PLACE REQUIRED SQL SELECT STATEMENT FOR THIS PART HERE
 -- ENSURE that your query is formatted and has a semicolon
