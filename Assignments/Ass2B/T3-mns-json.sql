@@ -25,8 +25,9 @@ SELECT
             '_id' VALUE appt_no,
                     'datetime' VALUE appt_datetime,
                     'provider_code' VALUE provider_code,
-                    'item_totalcost' VALUE apptserv_itemcost,
-                    'no_of_items' VALUE SUM(as_item_quantity),
+                    'provider_name' VALUE provider_title || '. ' || provider_fname || ' ' || provider_lname,
+                    'item_totalcost' VALUE SUM(item_stdcost * as_item_quantity),
+                    'no_of_items' VALUE count(as_item_quantity),
                     'items' VALUE JSON_ARRAYAGG(
                 JSON_OBJECT(
                     'id' VALUE item_id,
@@ -49,7 +50,6 @@ GROUP BY
     appt_no,
     appt_datetime,
     provider_code,
-    apptserv_itemcost,
-    as_item_quantity
+    provider_title || '. ' || provider_fname || ' ' || provider_lname
 ORDER BY
     appt_no;
