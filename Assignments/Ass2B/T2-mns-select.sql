@@ -167,28 +167,36 @@ ORDER BY
 -- ENSURE that your query is formatted and has a semicolon
 -- (;) at the end of this answer
 SELECT
-    provider_code           AS pcode,
-    COUNT(DISTINCT appt_no) AS numberappt,
+CASE
+    WHEN p.provider_code IS NULL THEN 
+    lpad('-', 25)
+    ELSE
+    lpad(p.provider_code, 25) END AS provider_code,
     CASE
-        WHEN SUM(apptserv_fee) IS NULL THEN
-            '-'
+        WHEN COUNT(appt.appt_no) = 0 THEN
+            lpad('-', 15)
         ELSE
-            to_char(SUM(apptserv_fee),
-                    '$99999.99')
-    END                     AS totalfees,
-    CASE
-        WHEN SUM(as_item_quantity) IS NULL THEN '-'
-        ELSE TO_CHAR(SUM(as_item_quantity), '99999')
-    END AS noitems
+            lpad(to_char(COUNT(appt.appt_no)),
+                 15)
+    END                       AS numberappt,
+    lpad(nvl(to_char(SUM(apt_ser.apptserv_fee + nvl(apt_ser.apptserv_itemcost, 0)),
+                     '$99990.99'),
+             '-'),
+         15)                  AS totalfees,
+    lpad(nvl(to_char(SUM(appt_item.as_item_quantity)),
+             '-'),
+         15)                  AS noitems
 FROM
-         mns.provider
-    NATURAL JOIN mns.appointment
-    NATURAL JOIN mns.appt_serv
-    NATURAL JOIN mns.apptservice_item 
-WHERE
-    appt_datetime BETWEEN TO_DATE('10-Sep-2023 09:00', 'dd-Mon-yyyy hh24:mi') AND
-    TO_DATE('14-Sep-2023 17:00', 'dd-Mon-yyyy hh24:mi')
+    mns.provider         p
+    FULL OUTER JOIN mns.appointment      appt
+    ON appt.provider_code = p.provider_code
+       AND appt.appt_datetime BETWEEN TO_DATE('10-SEP-2023 09:00', 'DD-MM-YYYY HH24:MI'
+       ) AND TO_DATE('14-SEP-2023 17:00', 'DD-MM-YYYY HH24:MI')
+    FULL OUTER JOIN mns.appt_serv        apt_ser
+    ON appt.appt_no = apt_ser.appt_no
+    FULL OUTER JOIN mns.apptservice_item appt_item
+    ON appt_item.appt_no = apt_ser.appt_no
 GROUP BY
-    provider_code
+    p.provider_code
 ORDER BY
-    provider_code;
+    p.provider_code;
