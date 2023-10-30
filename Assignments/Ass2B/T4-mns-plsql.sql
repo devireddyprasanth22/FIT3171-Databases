@@ -41,7 +41,6 @@ BEGIN
     WHERE
         service_code = p_service_code;
 -- finding valid provider
-
     IF
         count_values_appt = 1
         AND count_values_sc = 1
