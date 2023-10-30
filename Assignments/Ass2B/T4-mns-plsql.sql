@@ -123,9 +123,8 @@ BEGIN
                 appt_no = :new.appt_no
             AND service_code = :new.service_code;
 
-    END IF;
 
-    IF updating THEN
+    ELSIF updating THEN
         UPDATE item
         SET
             item_stock = item_stock + :old.as_item_quantity - :new.as_item_quantity
@@ -146,9 +145,8 @@ BEGIN
                 appt_no = :new.appt_no
             AND service_code = :new.service_code;
 
-    END IF;
 
-    IF deleting THEN
+    ELSIF deleting THEN
         UPDATE item
         SET
             item_stock = item_stock + :old.as_item_quantity
@@ -157,14 +155,7 @@ BEGIN
 
         UPDATE appt_serv
         SET
-            apptserv_itemcost = :old.as_item_quantity * (
-                SELECT
-                    item_stdcost
-                FROM
-                    item
-                WHERE
-                    item_id = :old.item_id
-            )
+            apptserv_itemcost = null
         WHERE
                 appt_no = :old.appt_no
             AND service_code = :old.service_code;
